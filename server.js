@@ -23,29 +23,29 @@ function createTemplate (data){
     var content =data.content;
     
    var htmlTemplate =`
-   <html> 
-    <head>
-        <title>${title}</title>
-          <link href="/ui/style.css" rel="stylesheet" />
-        </head>
-        <body>
-        <div>
-            <div class="cec container">
-            <a href='/'>HOME</a>
-            <hr/>
-            </div>
+           <html> 
+            <head>
+             <title>${title}</title>
+             <link href="/ui/style.css" rel="stylesheet" />
+            </head>
+            <body>
+            <div>
+              <div class="cec container">
+               <a href='/'>HOME</a>
+               <hr/>
+              </div>
                 <div class="cec container">
                   <div>
                     <h1 >${heading}</h1>
                   </div>
                   <div>
-             <p>${date}</p>
-         </div>
-         ${content}
-        </div>       
-    </body>
-</html>
- return htmlTemplate;
+               <p>${date}</p>
+              </div>
+               ${content}
+              </div>       
+             </body>
+           </html>
+       return htmlTemplate;
 
 `;
 }
@@ -53,7 +53,7 @@ function createTemplate (data){
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one',function(req,res){
+app.get('/articleOne',function(req,res){
    res.send(createTemplate(articleOne));
 });
 app.get('/article-two',function(req,res){
