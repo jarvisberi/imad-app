@@ -6,17 +6,17 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne ={
+var articleOne = {
   title:'articleOne',
   heaading:'ARTICLE ONE',
   date:'11 aug',
   content:` <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
      <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
      <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
-      <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>`
+      <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>`,
   
 };
-function createTemplate (data){
+function createTemplate (data) {
     var title = data.title;
     var heading = data.heading;
     var date = data.date;
