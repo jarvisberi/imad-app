@@ -1,4 +1,4 @@
-var express = require('express');
+ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 
@@ -6,7 +6,8 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne = {
+var articles ={
+'article-one': {
   title:'articleOne',
   heading:'ARTICLE ONE',
   date:'11 aug',
@@ -15,6 +16,27 @@ var articleOne = {
      <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
       <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>`,
   
+},
+'article-two' :{
+    title:'articleTwo',
+  heading:'ARTICLE Two',
+  date:'11 aug',
+  content:` <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
+     <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
+     <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
+      <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>`,
+  
+},
+'article-three':{
+    title:'articleThree',
+  heading:'ARTICLE THREE',
+  date:'11 aug',
+  content:` <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
+     <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
+     <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
+      <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>`,
+  
+},
 };
 function createTemplate (data) {
     var title = data.title;
@@ -54,8 +76,9 @@ return htmlTemplate
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/articleOne',function(req,res){
-   res.send(createTemplate(articleOne));
+app.get('/:articlename',function(req,res){
+    var articlename = req.params.articlename;
+   res.send(createTemplate(articles[articlename]));
 });
 app.get('/article-two',function(req,res){
   res.sendFile(path.join(__dirname, 'ui','article-two.html'));
