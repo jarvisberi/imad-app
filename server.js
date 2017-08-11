@@ -5,6 +5,45 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+
+var articleOne ={
+  title:'articleOne',
+  heaading:'ARTICLE ONE',
+  date:'11 aug',
+  content:` <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
+     <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
+     <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>
+      <p>This is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article this is my first web page article </p>`
+  
+};
+
+var htmlTemplate =`
+<html>
+    <head>
+        <title>${title}</title>
+          <link href="/ui/style.css" rel="stylesheet" />
+        </head>
+        <body>
+        <div>
+            <div class="cec container">
+            <a href='/'>HOME</a>
+            <hr/>
+            </div>
+                <div class="cec container">
+                  <div>
+                    <h1 >${heading}</h1>
+                  </div>
+                  <div>
+             <p>${date}</p>
+         </div>
+         ${content}
+        </div>       
+    </body>
+</html>
+
+`;
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
